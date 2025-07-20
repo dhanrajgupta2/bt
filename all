@@ -66,9 +66,5 @@ contract StudentData {
     fallback() external payable {
         // Can be used to receive Ether
     }
-
-    // Check contract's Ether balance
-    function getBalance() public view returns (uint) {
-        return address(this).balance;
-    }
 }
+
