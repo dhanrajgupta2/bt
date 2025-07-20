@@ -25,20 +25,14 @@ contract StudentData {
         students.push(Student(_name, _age));
     }
 
-    // Get student by index
-    function getStudent(uint index) public view returns (string memory, uint) {
-        require(index < students.length, "Invalid index");
-        Student memory s = students[index];
-        return (s.name, s.age);
-    }
-
     // Fallback function
     fallback() external payable {
-        // Fallback can be used to receive Ether or log data
+        // Can be used to receive Ether
     }
 
-    // To view how much Ether was sent
+    // Check contract's Ether balance
     function getBalance() public view returns (uint) {
         return address(this).balance;
     }
 }
+
