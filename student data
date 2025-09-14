@@ -1,18 +1,17 @@
-// Exp 4 : Write a program in solidity to create Student data. Use the following constructs:
-Structures
-Arrays
-Fallback
-Deploy this as smart contract on Ethereum and Observe the transaction fee and Gas values.
-
-
-// solution
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+/*
+ Exp 4 : Write a program in solidity to create Student data. 
+ Use the following constructs:
+ - Structures
+ - Arrays
+ - Fallback
+ Deploy this as smart contract on Ethereum and Observe 
+ the transaction fee and Gas values.
+*/
+
 contract StudentData {
-    
     struct Student {
         string name;
         uint age;
@@ -25,8 +24,13 @@ contract StudentData {
         students.push(Student(_name, _age));
     }
 
-    // Fallback function
+    // Special function to receive ETH
+    receive() external payable {
+        // This will be called on plain ETH transfers
+    }
+
+    // Fallback function (for unmatched calls or when no data is sent)
     fallback() external payable {
-        // Can be used to receive Ether
+        // Can also receive Ether if called incorrectly
     }
 }
